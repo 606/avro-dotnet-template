@@ -22,6 +22,8 @@ A production-ready .NET 10 Web API template for building modern backend applicat
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later
 - A code editor (Visual Studio, VS Code, or Rider)
 
+> **Note**: This template targets .NET 10 (`net10.0`). As of the template creation, .NET 10 is not yet released. The template is designed to work with .NET 10 when it becomes available. For testing purposes, you can modify the generated `TargetFramework` in the `.csproj` file to `net9.0` or another available version.
+
 ## Installation
 
 ### Install the Template
@@ -178,6 +180,29 @@ After creating your project:
 - Development settings: `appsettings.Development.json`
 - Production settings: `appsettings.json`
 - Environment-specific configuration is loaded automatically
+
+## Template Verification
+
+After creating a project from the template, verify it works correctly:
+
+```bash
+# Create a test project
+dotnet new avro-dotnet10 -n TestApi
+
+# Navigate to the project
+cd TestApi/src/TestApi
+
+# Build the project
+dotnet build
+
+# Run the project
+dotnet run
+```
+
+Then test the endpoints:
+- **Swagger UI**: `https://localhost:5001/swagger`
+- **Weather API**: `https://localhost:5001/api/weatherforecast`
+- **Health Check**: `https://localhost:5001/health`
 
 ## Uninstalling the Template
 
