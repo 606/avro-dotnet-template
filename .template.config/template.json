@@ -60,7 +60,7 @@
         {
           "condition": "(!EnableSwagger)",
           "exclude": [
-            "Extensions/SwaggerExtensions.cs"
+            "src/**/Extensions/SwaggerExtensions.cs"
           ]
         }
       ]
