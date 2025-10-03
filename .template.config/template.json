@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "606",
+  "classifications": [
+    "Backend",
+    "Web",
+    "WebAPI"
+  ],
+  "identity": "AvroDotNet.Template.WebAPI.10",
+  "name": "Avro .NET 10 Web API Template",
+  "shortName": "avro-dotnet10",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "AvroDotNet.Company1",
+  "preferNameDirectory": true,
+  "symbols": {
+    "CompanyName": {
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "Company1",
+      "replaces": "Company1",
+      "description": "The name of the company/organization"
+    },
+    "HttpPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "defaultValue": "5000",
+      "replaces": "5000",
+      "description": "Port number for HTTP"
+    },
+    "HttpsPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "defaultValue": "5001",
+      "replaces": "5001",
+      "description": "Port number for HTTPS"
+    },
+    "EnableSwagger": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true",
+      "description": "Enable Swagger/OpenAPI documentation"
+    },
+    "EnableHealthChecks": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true",
+      "description": "Enable health check endpoints"
+    },
+    "Framework": {
+      "type": "computed",
+      "value": "net10.0"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!EnableSwagger)",
+          "exclude": [
+            "Extensions/SwaggerExtensions.cs"
+          ]
+        }
+      ]
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "src/AvroDotNet.Company1/AvroDotNet.Company1.csproj"
+    }
+  ],
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}
